@@ -1,1 +1,17 @@
 # c-for-Lib.-function
+cxx_library(
+    name = "demo-cxx",
+    srcs = ["demo.cc"],
+    visibility = ["PUBLIC"],
+    deps = [
+        ":include",
+        "//demo-rs:include",
+    ],
+)
+
+cxx_library(
+    name = "include",
+    exported_headers = ["demo.h"],
+    visibility = ["PUBLIC"],
+    deps = ["//:core"],
+)
